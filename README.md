@@ -1,3 +1,4 @@
+
 # Task Manager
 
 ## Description
@@ -32,3 +33,112 @@ Follow these steps to run the project locally:
    ```bash
    git clone https://github.com/your-username/task_manager.git
    cd task_manager
+   ```
+
+2. **Set up a virtual environment:**
+   Create a virtual environment:
+   ```bash
+   python3 -m venv venv
+   ```
+
+   Activate the virtual environment:
+
+   **On macOS/Linux:**
+   ```bash
+   source venv/bin/activate
+   ```
+
+   **On Windows:**
+   ```bash
+   venv\Scriptsctivate
+   ```
+
+3. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Configure the database:**
+   Run the migrations to set up the database schema:
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+
+5. **Create a superuser to access the Django admin:**
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+6. **Run the development server:**
+   ```bash
+   python manage.py runserver
+   ```
+
+7. **Start Celery Worker for background tasks:**
+   ```bash
+   celery -A task_manager worker --loglevel=info
+   ```
+
+8. **Visit the application:**
+   Open your browser and navigate to:
+   ```bash
+   http://127.0.0.1:8000
+   ```
+
+## Deployment
+
+You can deploy the Task Manager app using Railway. Follow these steps to deploy:
+
+1. **Install the Railway CLI:**
+   ```bash
+   npm install -g railway
+   ```
+
+2. **Log in to your Railway account:**
+   ```bash
+   railway login
+   ```
+
+3. **Link the project to Railway:**
+   ```bash
+   railway link
+   ```
+
+4. **Deploy the project:**
+   ```bash
+   railway up
+   ```
+
+5. **Access the live application** through the provided Railway link.
+
+## Contributing
+
+We welcome contributions to this project. To contribute:
+
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature-branch
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -am 'Add new feature'
+   ```
+4. Push your changes to your fork:
+   ```bash
+   git push origin feature-branch
+   ```
+5. Open a pull request to the main repository.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Acknowledgements
+
+- **Django**: The primary web framework used.
+- **Celery**: For background task processing.
+- **Redis**: As a message broker for Celery.
+- **Django Channels**: For real-time functionality in the app.
+- **Bootstrap**: For UI styling.
